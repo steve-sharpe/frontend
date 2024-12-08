@@ -52,28 +52,61 @@ nav ul li button:hover {
   top: 2.5rem; /* Adjust to match your nav height */
   left: 0;
   background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 1rem;
+  border: 1px solid #ddd; /* Adds a subtle border for distinction */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  padding: 0.5rem 0;
   z-index: 10;
-  border-radius: 4px;
-  min-width: 200px;
+  border-radius: 8px; /* Rounded corners for modern look */
+  min-width: 200px; /* Ensures consistent width */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Makes it unclickable when not visible */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
+/* Show Submenu on Hover */
+nav ul li:hover .submenu {
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Makes it clickable */
+}
+
+/* Submenu Items */
 .submenu li {
-  margin: 0.5rem 0;
+  margin: 0;
+  padding: 0;
 }
 
 .submenu li a {
+  display: block; /* Makes the link take full width */
   color: #333;
   font-weight: normal;
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.3s;
+  padding: 0.8rem 1.2rem; /* Adds padding for better spacing */
+  transition: background-color 0.3s, color 0.3s;
 }
 
+/* Submenu Item Hover Effect */
 .submenu li a:hover {
-  color: #004274;
+  background-color: #004274; /* Matches the nav bar background */
+  color: #ffffff; /* White text for contrast */
 }
+
+/* Adjust Dropdown Position Responsively */
+@media (max-width: 768px) {
+  .submenu {
+    position: static; /* Stacks submenu items on small screens */
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    opacity: 1; /* Always visible on mobile */
+    visibility: visible;
+  }
+
+  .submenu li a {
+    padding: 0.5rem 1rem;
+  }
+}
+
 
 /* Table Styling */
 table {
