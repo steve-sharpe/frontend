@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+function formatDateTime(dateTimeString) {
+  const date = new Date(dateTimeString);
+  
+  // Format date to layman's terms
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = date.toLocaleDateString('en-US', options);
+
+  // Format time to 12-hour format with AM/PM
+  const formattedTime = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+  return `${formattedDate}, at ${formattedTime}`;
+}
+
 function FlightReport() {
   const [flights, setFlights] = useState([]);
 
@@ -31,10 +44,10 @@ function FlightReport() {
           {flights.map((flight) => (
             <tr key={flight.flightId}>
               <td>{flight.flightNumber}</td>
-              <td>{new Date(flight.departureTime).toLocaleString()}</td>
-              <td>{new Date(flight.arrivalTime).toLocaleString()}</td>
-              <td>{flight.departureAirport ? flight.departureAirport.airportName : 'N/A'}</td>
-              <td>{flight.arrivalAirport ? flight.arrivalAirport.airportName : 'N/A'}</td>
+            <td>{formatDateTime(flight.departureTime)}</td>
+            <td>{formatDateTime(flight.arrivalTime)}</td>
+            <td>{flight.departureAirport ? flight.departureAirport.airportName : 'N/A'}</td>
+            <td>{flight.arrivalAirport ? flight.arrivalAirport.airportName : 'N/A'}</td>
               <td>{flight.airline ? flight.airline.airlineName : 'N/A'}</td>
               <td>{flight.aircraft ? flight.aircraft.aircraftModel : 'N/A'}</td>
               <td>{flight.gate ? flight.gate.gateNumber : 'N/A'}</td>

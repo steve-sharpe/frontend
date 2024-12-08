@@ -24,10 +24,10 @@ function GateReport() {
         </thead>
         <tbody>
           {gates.map((gate) => (
-            <tr key={gate.gateId}>
+            <tr key={gate.Id}>
               <td>{gate.gateNumber}</td>
-              <td>{gate.airport ? gate.airport.name : 'N/A'}</td>
-              <td>{gate.airport ? gate.airport.code : 'N/A'}</td>
+              <td>{gate.airport ? gate.airport.airportName : 'N/A'}</td>
+              <td>{gate.airport ? gate.airport.airportCode : 'N/A'}</td>
             </tr>
           ))}
         </tbody>

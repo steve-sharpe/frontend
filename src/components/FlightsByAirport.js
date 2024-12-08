@@ -13,6 +13,24 @@ function FlightsByAirport() {
       .catch(error => console.error('Error fetching airport codes:', error));
   }, []);
 
+  function formatDateTime(dateTimeString) {
+    const date = new Date(dateTimeString);
+    
+    // Format date to layman's terms
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = date.toLocaleDateString('en-US', options);
+
+    // Format time to 12-hour format with AM/PM
+    const formattedTime = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+    return `${formattedDate}, at ${formattedTime}`;
+}
+
+function formatDestination(destination) {
+    // Formats the destination to be more descriptive
+    return destination || 'Destination not available';
+}
+
   const fetchFlights = () => {
     axios.get(`http://localhost:8080/airports/code/${airportCode}/flights`)
       .then(response => setFlights(response.data))
@@ -40,9 +58,9 @@ function FlightsByAirport() {
         <tbody>
           {flights.map((flight) => (
             <tr key={flight.flightId}>
-              <td>{flight.flightNumber}</td>
-              <td>{flight.destination}</td>
-              <td>{flight.departureTime}</td>
+<td>{`Flight #${flight.flightNumber}`}</td> {/* Adds a layman-friendly prefix */}
+            <td>{formatDestination(flight.arrivalAirport.airportName)}</td>
+            <td>{formatDateTime(flight.departureTime)}</td>
             </tr>
           ))}
         </tbody>
