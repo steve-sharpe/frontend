@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Welcome to the Airline Management Application 🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack application developed by **Lisa**, **Kyle**, and **Steve** for the SDAT Final Sprint Project. The app helps manage airline-related data such as airports, flights, passengers, and more, providing an easy-to-use interface and robust backend system.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📖 What’s Inside?
 
-### `npm start`
+This app has two parts:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Frontend**: A beautiful user interface to interact with the airline data, built with React.
+2. **Backend**: A powerful REST API built using Java Spring Boot for managing data efficiently.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🌟 Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🖥️ Frontend
 
-### `npm run build`
+- User-friendly interface to view and manage:
+  - Airports
+  - Flights
+  - Gates
+  - Passengers
+  - Aircraft
+- Real-time interaction with the backend via API calls.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ⚙️ Backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Handles CRUD (Create, Read, Update, Delete) operations for:
+  - Airports, Flights, Gates, Passengers, and Aircraft.
+- REST API for seamless integration with the frontend.
+- Reliable MySQL database for data storage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ Setting Up the Project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Before starting, make sure you have:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Java 17** or higher
+- **Node.js** and **npm**
+- **MySQL**
+- A code editor like **VS Code** (optional)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### 🚧 Setting Up the Backend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Navigate to the backend directory:
+   ```bash
+   cd keyin
+   ```
+2. Build the project:
+   ```bash
+   mvn clean install
+   ```
+3. Start the backend server:
+   ```bash
+   mvn spring-boot:run
+   ```
+4. The backend API is now running at `http://localhost:8080`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 🎨 Setting Up the Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Go to the frontend directory:
+   ```bash
+   cd src
+   ```
+2. Install all required dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the frontend server:
+   ```bash
+   npm start
+   ```
+4. Open your browser and go to `http://localhost:3000`.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🚀 How to Use the Application
 
-### Making a Progressive Web App
+1. **Start both servers** (backend and frontend).
+2. Open the frontend in your browser to:
+   - View and manage airports, flights, passengers, gates, and aircraft.
+3. If you are a developer:
+   - Use Postman or any REST client to test backend endpoints.
+   - Modify components in the `src/components` directory to customize the UI.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🤝 Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project was created with ❤️ by:
 
-### Deployment
+- **Lisa**
+- **Kyle**
+- **Steve**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+If you have any questions or suggestions, feel free to reach out to us!
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Would you like this version saved as a file for download?
