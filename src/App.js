@@ -10,6 +10,7 @@ import GateReport from './components/GateReport';
 import AirlineReport from './components/AirlineReport';
 import FlightsByAirport from './components/FlightsByAirport';
 import GatesByAirportCode from './components/GatesByAirportCode';
+import PassengersByFlight from './components/PassengersByFlight'; // Import the GetPassengersByFlightNumber component
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
           <Route path="/reports/airlines" element={<AirlineReport />} />
           <Route path="/reports/flights-by-airport" element={<FlightsByAirport />} />
           <Route path="/reports/gates-by-airport" element={<GatesByAirportCode />} />
+          <Route path="/reports/passengers-by-flight" element={<PassengersByFlight />} />
+          
         </Routes>
       </div>
     </Router>

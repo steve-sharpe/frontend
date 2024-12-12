@@ -28,6 +28,8 @@ function Navbar() {
         </li>
         <li><Link to="/reports/gates-by-airport">Gates by Airport Code</Link></li>
         <li><Link to="/reports/flights-by-airport">Flights by Airport Code</Link></li>
+        <li><Link to="/reports/passengers-by-flight">Passengers by Flight</Link></li>
+      
       </ul>
     </nav>
   );
