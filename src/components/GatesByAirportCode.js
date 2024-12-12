@@ -5,16 +5,17 @@ function GatesByAirportCode() {
   const [airportCode, setAirportCode] = useState('');
   const [gates, setGates] = useState([]);
   const [airportCodes, setAirportCodes] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     // Fetch the list of airport codes when the component mounts
-    axios.get('http://localhost:8080/airports/codes')
+   axios.get(`${API_BASE_URL}/airports/codes`)
       .then(response => setAirportCodes(response.data))
       .catch(error => console.error('Error fetching airport codes:', error));
   }, []);
 
   const fetchGates = () => {
-    axios.get(`http://localhost:8080/airports/code/${airportCode}/gates`)
+    axios.get(`${API_BASE_URL}/airports/code/${airportCode}/gates`)
       .then(response => setGates(response.data))
       .catch(error => console.error('Error fetching gates:', error));
   };

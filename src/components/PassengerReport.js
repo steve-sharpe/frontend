@@ -3,9 +3,10 @@ import axios from 'axios';
 
 function PassengerReport() {
   const [passengers, setPassengers] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
-    axios.get('http://localhost:8080/passengers')
+  axios.get(`${API_BASE_URL}/passengers`)
       .then(response => setPassengers(response.data))
       .catch(error => console.error('Error fetching passenger data:', error));
   }, []);

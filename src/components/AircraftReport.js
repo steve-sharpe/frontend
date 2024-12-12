@@ -3,9 +3,10 @@ import axios from 'axios';
 
 function AircraftReport() {
   const [aircraft, setAircraft] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
-    axios.get('http://localhost:8080/aircrafts')
+    axios.get(`${API_BASE_URL}/aircrafts`)
       .then(response => setAircraft(response.data))
       .catch(error => console.error('Error fetching aircraft data:', error));
   }, []);

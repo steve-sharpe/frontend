@@ -5,19 +5,20 @@ function PassengersByFlight() {
   const [flightNumber, setFlightNumber] = useState('');
   const [passengers, setPassengers] = useState([]);
   const [flightNumbers, setFlightNumbers] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     // Fetch the list of flight numbers when the component mounts
-    axios.get('http://localhost:8080/flights')
-        .then(response => setFlightNumbers(response.data.map(flight => flight.flightNumber)))
-        .catch(error => console.error('Error fetching flight numbers:', error));
-    }, []);
+   axios.get(`${API_BASE_URL}/flights`)
+      .then(response => setFlightNumbers(response.data.map(flight => flight.flightNumber)))
+      .catch(error => console.error('Error fetching flight numbers:', error));
+  }, []);
 
-    const fetchPassengers = () => {
-        axios.get(`http://localhost:8080/flights/flightNumber/${flightNumber}/passengers`)
-          .then(response => setPassengers(response.data))
-          .catch(error => console.error('Error fetching passengers:', error));
-      };
+  const fetchPassengers = () => {
+    axios.get(`${API_BASE_URL}/flights/flightNumber/${flightNumber}/passengers`)
+      .then(response => setPassengers(response.data))
+      .catch(error => console.error('Error fetching passengers:', error));
+  };
 
   return (
     <div>
@@ -29,23 +30,26 @@ function PassengersByFlight() {
         ))}
       </select>
       <button onClick={fetchPassengers}>Search</button>
-      <table>
-        <thead>
-          <tr>
-            <th>Passenger Name</th>
-            <th>Passenger Email</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          {passengers.map((passenger) => (
-            <tr key={passenger.passengerId}>
-              <td>{passenger.passengerName}</td>
-              <td>{passenger.passengerEmail}</td>
+      {passengers.length === 0 ? (
+        null
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Passenger Name</th>
+              <th>Passenger Email</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {passengers.map((passenger) => (
+              <tr key={passenger.passengerId}>
+                <td>{passenger.passengerName}</td>
+                <td>{passenger.passengerEmail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }

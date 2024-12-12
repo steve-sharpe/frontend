@@ -5,10 +5,11 @@ function FlightsByAirport() {
   const [airportCode, setAirportCode] = useState('');
   const [flights, setFlights] = useState([]);
   const [airportCodes, setAirportCodes] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     // Fetch the list of airport codes when the component mounts
-    axios.get('http://localhost:8080/airports/codes')
+    axios.get(`${API_BASE_URL}/airports/codes`)
       .then(response => setAirportCodes(response.data))
       .catch(error => console.error('Error fetching airport codes:', error));
   }, []);
@@ -32,7 +33,7 @@ function formatDestination(destination) {
 }
 
   const fetchFlights = () => {
-    axios.get(`http://localhost:8080/airports/code/${airportCode}/flights`)
+   axios.get(`${API_BASE_URL}/airports/code/${airportCode}/flights`)
       .then(response => setFlights(response.data))
       .catch(error => console.error('Error fetching flights:', error));
   };

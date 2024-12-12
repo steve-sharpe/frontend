@@ -3,10 +3,11 @@ import axios from 'axios';
 
 function AirportReport() {
   const [airports, setAirports] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     // Fetch airport data from the backend
-    axios.get('http://localhost:8080/airports')
+    axios.get(`${API_BASE_URL}/airports`)
       .then(response => setAirports(response.data))
       .catch(error => console.error('Error fetching airport data:', error));
   }, []);

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function formatDateTime(dateTimeString) {
   const date = new Date(dateTimeString);
+
   
   // Format date to layman's terms
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -16,10 +17,11 @@ function formatDateTime(dateTimeString) {
 
 function FlightReport() {
   const [flights, setFlights] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     // Fetch flight data from the backend
-    axios.get('http://localhost:8080/flights')
+    axios.get(`${API_BASE_URL}/flights`)
       .then(response => setFlights(response.data))
       .catch(error => console.error('Error fetching flight data:', error));
   }, []);

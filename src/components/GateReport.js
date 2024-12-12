@@ -3,10 +3,11 @@ import axios from 'axios';
 
 function GateReport() {
   const [gates, setGates] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     // Fetch gate data from the backend
-    axios.get('http://localhost:8080/gates')
+axios.get(`${API_BASE_URL}/gates`)
       .then(response => setGates(response.data))
       .catch(error => console.error('Error fetching gates data:', error));
   }, []);

@@ -3,10 +3,11 @@ import axios from 'axios';
 
 function AirlineReport() {
   const [airlines, setAirlines] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     // Fetch airline data from the backend
-    axios.get('http://localhost:8080/airlines')
+    axios.get(`${API_BASE_URL}/airlines`)
       .then(response => setAirlines(response.data))
       .catch(error => console.error('Error fetching airline data:', error));
   }, []);
