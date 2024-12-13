@@ -1,0 +1,51 @@
+User Stories
+
+---
+
+### **User Story 1: View Passengers on a Flight**
+As a **flight manager**,  
+I want to **select a flight number and see the list of passengers**,  
+so that **I can ensure all passengers are accounted for before departure**.
+
+#### **Acceptance Criteria:**
+1. The user is presented with a dropdown menu of flight numbers.
+2. Upon selecting a flight, the list of passengers on that flight is displayed, including their first name and last name.
+3. If no passengers exist for the flight, a message is displayed: "No passengers for this flight."
+
+---
+
+### **User Story 2: View Aircraft Details**
+As an **aviation administrator**,  
+I want to **view detailed reports of aircraft**,  
+so that **I can monitor aircraft specifications, availability, and assignments.**
+
+#### **Acceptance Criteria:**
+1. The user can navigate to an "Aircraft Report" page via the main menu.
+2. The report displays a list of all aircraft, including details like aircraft type, capacity, and status.
+3. The user can filter aircraft by availability status or search by aircraft ID.
+
+---
+
+### **User Story 3: View Flights by Airport**
+As an **airport operations staff member**,  
+I want to **view all flights operating from a specific airport**,  
+so that **I can coordinate ground operations effectively.**
+
+#### **Acceptance Criteria:**
+1. The user is presented with a dropdown menu of airport codes.
+2. Upon selecting an airport, the list of flights associated with that airport is displayed.
+3. Flight details include flight number, destination, departure time, and status (on-time, delayed, etc.).
+
+---
+
+### **User Story 4: View Gates by Airport**
+As an **airport manager**,  
+I want to **view all gate assignments at a specific airport**,  
+so that **I can optimize gate utilization.**
+
+#### **Acceptance Criteria:**
+1. The user can navigate to a "Gates by Airport" page via the main menu.
+2. The user selects an airport, and the system displays all gates and their current flight assignments.
+3. Gates with no assigned flights are marked as "Available."
+
+---
