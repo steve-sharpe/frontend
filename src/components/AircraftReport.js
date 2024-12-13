@@ -6,7 +6,7 @@ function AircraftReport() {
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
-    axios.get(`http://54.158.248.142/aircrafts`)
+    axios.get(`${API_BASE_URL}/aircrafts`)
       .then(response => setAircraft(response.data))
       .catch(error => console.error('Error fetching aircraft data:', error));
   }, []);
